@@ -33,13 +33,25 @@ def logo():
 █───██─██────█─█─██───█────█─██─█─█─██────█─██─█─██─█─█─██───█───█───█─██─█─██─█────█───█─██─██─██───█
 ██████████████████████████████████████████████████████████████████████████████████████████████████████
 ''')
-logo()
-try:
-    thrdItr=int(input('Enter the number of threads: '))
-except ValueError:
-    exit("Incorrect value")
-url=input('Enter the URL: ')  
-if not url.__contains__('http') or not url.__contains__('.') or not url.__contains__(':') or not url.__contains__('/'):
-    exit("Incorrect input. example: https://www.google.com/")
-for num in range(0,thrdItr):
-    thrd(thrdItr,url)
+
+
+def main():
+    from time import sleep
+    logo()
+    try:
+        thrdItr=int(input('Enter the number of threads: '))
+    except ValueError:
+        print("Incorrect value")
+        sleep(2)
+        exit()
+    url=input('Enter the URL: ')  
+    if not url.__contains__('http') or not url.__contains__('.') or not url.__contains__(':') or not url.__contains__('/'):
+        print("Incorrect input. example: https://www.google.com/")
+        sleep(2)
+        exit()
+    for num in range(0,thrdItr):
+        thrd(thrdItr,url)
+
+
+if __name__ == "__main__":
+    main()
